@@ -19,10 +19,10 @@ html {
 }
 
 .page {
-  padding: 133px 30px;
   margin: 0;
+  padding: 133px 30px; 
   inline-size: 1200px;
-  block-size: 100%;
+  block-size: 800px;
   display: flex;
   justify-items: center;
   align-items: center;
@@ -66,7 +66,8 @@ html {
 .result__video-container {
   width: 711px;
   height: 386px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  position: relative;
 }
 
 .result__video {
@@ -86,7 +87,7 @@ html {
 }
 
 .search-form__fieldset-title {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
   font-weight: 400;
   font-style: regular;
   font-size: 18px;
@@ -111,10 +112,9 @@ html {
   cursor: pointer;
 }
 
-
 input[type="text"] {
   width: 225px;
-  padding-bottom: 3px;
+  padding-bottom: 2px;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   border-left: none;
@@ -146,17 +146,17 @@ input[type="text"] {
 .search-form__pseudo-checkbox::after {
   content: "";
   display: block;
-  background-color: #fff;
   width: 100%;
   height: 100%;
+  background-color: #fff;
   opacity: 0;
 }
 
-.search-form__checkbox:checked {
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   opacity: 1;
 }
 
-.search-form__label-text:hover {
+.search-form__label-text::after:hover {
   border-bottom: 1px solid #fff;
 }
 
@@ -167,8 +167,8 @@ input[type="text"] {
 
 .title {
   padding-top: 2px;
-  padding-left: 5px; 
-  margin-bottom: 25px;
+  padding-left: 5.5px;
+  margin-bottom: 22px;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   font-style: bold;
@@ -185,10 +185,16 @@ input[type="text"] {
 
 .content__list-container {
   height: 298px;
+  position: relative;
   overflow-y: scroll;
+  padding: 3px;
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.content__list-container::-webkit-scrollbar {
+    width: 3px;
 }
 
 .content__list {
@@ -205,14 +211,15 @@ input[type="text"] {
 }
 
 .content__list-item {
-  padding-left: 8px;
+  padding-left: 5px;
 }
 
 .content__card-link:hover {
   text-decoration: underline;
 }
 
-.content__card-link:active {
+.content__card-link:active,
+.content__card-link_current {
   background-color: #545050;
 }
 
@@ -225,6 +232,7 @@ input[type="text"] {
 }
 
 .content__video-card-title {
+  width: 196px;
   margin-bottom: 5px;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
@@ -234,6 +242,8 @@ input[type="text"] {
   text-transform: uppercase;
   color: #fff;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__video-card-description {
